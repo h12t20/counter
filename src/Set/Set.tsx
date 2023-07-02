@@ -17,7 +17,7 @@ export type SetPropsType = {
 
 export function Set(props: SetPropsType) {
     return (
-        <div className={s.set} onMouseOver={props.onMouseOver} //обрабочик курсора на внешний div
+        <div className={s.set} onMouseOver={props.onMouseOver} //обрабочик мыши на внешний div
              onMouseOut={props.onMouseOut}>
             <div className={s.blockInputs}>
                 <div className={s.input1}>
