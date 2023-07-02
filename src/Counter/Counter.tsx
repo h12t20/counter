@@ -17,7 +17,7 @@ export function Counter(props: PropsType) {
                     s.valueTxt : props.error.slice(0, 2) === 'Er' ? s.errorTxt : s.error}>
                     {props.error && props.error.slice(0, 2) === 'Er' ?
                         'Incorrect value!' : props.error.slice(0, 2) === 'En' ?
-                            'Enter values and press Set' : props.value}
+                            "Enter values and press 'set'" : props.value}
                 </h1>
             </div>
             <div className={s.buttonBlock}>
