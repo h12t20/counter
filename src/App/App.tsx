@@ -42,7 +42,7 @@ export const reducer = (state: StateType, action: ReducerType): StateType => {
             return {
                 ...state,
                 inputMaxTitle: +action.payload.value >= state.inputMinTitle &&
-                +action.payload.value >= 1 ?
+                +action.payload.value >= 0 ?
                     +action.payload.value : state.inputMaxTitle,
                 disable: false,
                 error: +action.payload.value <= state.inputMinTitle ? 'Err1' :
