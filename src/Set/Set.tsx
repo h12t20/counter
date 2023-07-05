@@ -11,15 +11,12 @@ export type SetPropsType = {
     inputMaxChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void
     setHandler: () => void
     error: string
-    /*onMouseOver: () => void*/
     disable: boolean
-    /*onMouseOut: () => void*/
 }
 
 export function Set(props: SetPropsType) {
     return (
-        <div className={s.set} /*onMouseOver={props.onMouseOver}*/ //обрабочик мыши на внешний div
-             /*onMouseOut={props.onMouseOut}*/>
+        <div className={s.set}>
             <div className={s.blockInputs}>
                 <div className={s.input1}>
                     <Input title={props.inputMaxTitle} name='max value'
