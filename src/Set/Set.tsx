@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react';
 import s from './Set.module.css'
 import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
+import {INF_MESSAGE} from "../App/App";
 
 export type SetPropsType = {
     inputMinTitle: number;
@@ -10,19 +11,19 @@ export type SetPropsType = {
     inputMaxChangeHandler: (e: ChangeEvent<HTMLInputElement>) => void
     setHandler: () => void
     error: string
-    onMouseOver: () => void
+    /*onMouseOver: () => void*/
     disable: boolean
-    onMouseOut: () => void
+    /*onMouseOut: () => void*/
 }
 
 export function Set(props: SetPropsType) {
     return (
-        <div className={s.set} onMouseOver={props.onMouseOver} //обрабочик мыши на внешний div
-             onMouseOut={props.onMouseOut}>
+        <div className={s.set} /*onMouseOver={props.onMouseOver}*/ //обрабочик мыши на внешний div
+             /*onMouseOut={props.onMouseOut}*/>
             <div className={s.blockInputs}>
                 <div className={s.input1}>
                     <Input title={props.inputMaxTitle} name='max value'
-                           className={props.error === 'Er1' ?
+                           className={props.error === 'Err1' ?
                                s.error : s.input} callback={props.inputMaxChangeHandler}/>
                 </div>
                 <div className={s.input2}>
@@ -32,7 +33,7 @@ export function Set(props: SetPropsType) {
                 </div>
             </div>
             <div className={s.buttonBlock}>
-                <Button disable={(!!props.error && props.error !== "Enter values and press 'set'") || props.disable}
+                <Button disable={(!!props.error && props.error !== INF_MESSAGE) || props.disable}
                         callback={props.setHandler} name='set' className={s.button}></Button>
             </div>
         </div>
