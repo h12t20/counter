@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Counter.module.css';
 import {Button} from "../Button/Button";
 
-import {INF_MESSAGE} from "../App/Reducer";
+import {INF_MESSAGE} from "../Redux/Reducer";
 
 export type PropsType = {
     error: string

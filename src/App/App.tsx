@@ -11,7 +11,7 @@ import {
     resetAC,
     setHandlerAC,
     StateType
-} from "./Reducer";
+} from "../Redux/Reducer";
 
 function App() {
 
