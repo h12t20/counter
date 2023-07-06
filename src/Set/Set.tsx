@@ -2,7 +2,6 @@ import React, {ChangeEvent} from 'react';
 import s from './Set.module.css'
 import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
-import {INF_MESSAGE} from "../App/App";
 
 export type SetPropsType = {
     inputMinTitle: number;
@@ -30,7 +29,7 @@ export function Set(props: SetPropsType) {
                 </div>
             </div>
             <div className={s.buttonBlock}>
-                <Button disable={(!!props.error && props.error !== INF_MESSAGE) || props.disable}
+                <Button disable={(!!props.error && props.error.slice(0,2) === 'Er') || props.disable}
                         callback={props.setHandler} name='set' className={s.button}></Button>
             </div>
         </div>

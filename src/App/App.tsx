@@ -56,7 +56,7 @@ export const reducer = (state: StateType, action: ReducerType): StateType => {
                 maxValue: state.inputMaxTitle,
                 value: state.inputMinTitle,
                 disable: true,
-                error: state.error === INF_MESSAGE ? '' : state.error
+                error: ''
             } : state
         }
         case 'INC_HANDLER': {
