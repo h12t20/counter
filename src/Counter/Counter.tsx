@@ -1,7 +1,8 @@
 import React from 'react';
 import s from './Counter.module.css';
 import {Button} from "../Button/Button";
-import {INF_MESSAGE} from "../App/App";
+
+import {INF_MESSAGE} from "../App/Reducer";
 
 export type PropsType = {
     error: string
