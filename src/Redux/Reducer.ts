@@ -61,8 +61,9 @@ export const reducer = (state: StateType, action: ReducerType): StateType => {
                 +action.payload.value >= -1 ?
                     +action.payload.value : state.inputMinTitle,
                 disable: false,
-                error: state.inputMaxTitle<1 || +action.payload.value >= state.inputMaxTitle ? 'Err1' :
-                    +action.payload.value < 0 ? 'Err2' : state.value >= state.maxValue ? state.value.toString() : INF_MESSAGE
+                error: state.inputMaxTitle < 1 || +action.payload.value >= state.inputMaxTitle ? 'Err1' :
+                    +action.payload.value < 0 ? 'Err2' : state.value >= state.maxValue ?
+                        state.value.toString() : INF_MESSAGE
             }
         }
         case 'MAX_TITLE': {
@@ -72,8 +73,9 @@ export const reducer = (state: StateType, action: ReducerType): StateType => {
                 +action.payload.value >= 0 ?
                     +action.payload.value : state.inputMaxTitle,
                 disable: false,
-                error: +action.payload.value <1 || +action.payload.value <= state.inputMinTitle ? 'Err1' :
-                    state.inputMinTitle<0? 'Err2': state.value >= state.maxValue ? state.value.toString() : INF_MESSAGE
+                error: +action.payload.value < 1 || +action.payload.value <= state.inputMinTitle ? 'Err1' :
+                    state.inputMinTitle < 0 ? 'Err2' : state.value >= state.maxValue ?
+                        state.value.toString() : INF_MESSAGE
             }
         }
         case 'SET_HANDLER': {
