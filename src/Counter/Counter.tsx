@@ -12,7 +12,6 @@ export type PropsType = {
 }
 export const Counter=React.memo(CounterComp)
 export function CounterComp(props: PropsType) {
-    console.log('counter')
     return (
         <div className={s.counter}>
             <div className={s.inputBlock}>

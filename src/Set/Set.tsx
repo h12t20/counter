@@ -14,7 +14,6 @@ export type SetPropsType = {
 }
 export const Set=React.memo(SetComp)
 export function SetComp(props: SetPropsType) {
-    console.log('set')
     return (
         <div className={s.set}>
             <div className={s.blockInputs}>
