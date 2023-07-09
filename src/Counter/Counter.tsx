@@ -9,11 +9,10 @@ export type PropsType = {
     incHandler: () => void
     resetHandler: () => void
     value: number
-    storageMinValueAsString:string | null
-    storageMaxValueAsString:string | null
 }
-
-export function Counter(props: PropsType) {
+export const Counter=React.memo(CounterComp)
+export function CounterComp(props: PropsType) {
+    console.log('counter')
     return (
         <div className={s.counter}>
             <div className={s.inputBlock}>

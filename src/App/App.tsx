@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useReducer} from 'react';
+import React, {ChangeEvent, useEffect, useReducer, useMemo} from 'react';
 import s from './App.module.css';
 import {Counter} from "../Counter/Counter";
 import {Set} from "../Set/Set";
@@ -54,17 +54,27 @@ function App() {
         localStorage.removeItem('counterValue') // удаление сохраненного значения счетчика
         dispatchState(resetAC());
     }
+    const counterProps= useMemo(()=>({
+        error:state.error,
+        value:state.value,
+        incHandler:incHandler,
+        resetHandler:resetHandler
+    }),[state.error, state.value]);
+    const setProps= useMemo(()=>({
+        setHandler:setHandler,
+        inputMinChangeHandler:inputMinChangeHandler,
+        inputMaxChangeHandler:inputMaxChangeHandler,
+        inputMinTitle:state.inputMinTitle,
+        inputMaxTitle:state.inputMaxTitle,
+        error:state.error,
+        disable:state.disable
+    }),[state.error, state.disable, state.inputMinTitle, state.inputMaxTitle])
     return (
         <div className={s.App}>
             <Logo/>
             <div className={s.body}>
-                <Set setHandler={setHandler} inputMinChangeHandler={inputMinChangeHandler}
-                     inputMaxChangeHandler={inputMaxChangeHandler} inputMinTitle={state.inputMinTitle}
-                     inputMaxTitle={state.inputMaxTitle} error={state.error}
-                     disable={state.disable}/>
-                <Counter value={state.value} resetHandler={resetHandler} error={state.error}
-                         incHandler={incHandler} storageMinValueAsString={storageMinValueAsString}
-                         storageMaxValueAsString={storageMaxValueAsString}/>
+                <Set {...setProps}/>
+                <Counter {...counterProps}/>
             </div>
         </div>
     );
