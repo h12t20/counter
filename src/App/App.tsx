@@ -4,13 +4,13 @@ import {Counter} from "../Counter/Counter";
 import {Set} from "../Set/Set";
 import {Logo} from '../Logo/Logo';
 import {
+    StateType,
+    reducer,
     incHandlerAC,
     maxTitleChangeAC,
     minTitleChangeAC,
-    reducer,
     resetAC,
     setHandlerAC,
-    StateType
 } from "../Redux/Reducer";
 
 function App() {
