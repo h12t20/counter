@@ -1,74 +1,54 @@
-import React, {ChangeEvent, useEffect, useReducer, useMemo} from 'react';
+import React, {ChangeEvent, useEffect, useMemo} from 'react';
 import s from './App.module.css';
 import {Counter} from "../Counter/Counter";
 import {Set} from "../Set/Set";
 import {Logo} from '../Logo/Logo';
 import {
-    StateType,
-    reducer,
     incHandlerAC,
     maxTitleChangeAC,
     minTitleChangeAC,
     resetAC,
     setHandlerAC,
-} from "../Redux/Reducer";
+} from "../Redux/reducer";
+import {store} from "../Redux/store";
 
 function App() {
-
-    const storageMinValueAsString = localStorage.getItem('counterMinValue');
-    const storageMinValue = storageMinValueAsString ? +storageMinValueAsString : 0;
-    const storageMaxValueAsString = localStorage.getItem('counterMaxValue');
-    const storageMaxValue = storageMaxValueAsString ? +storageMaxValueAsString : 10;
-    const storageValueAsString = localStorage.getItem('counterValue');
-    const initialState: StateType = {
-        value: storageValueAsString && storageMinValueAsString ?
-            Math.max(+storageValueAsString, +storageMinValueAsString) : storageValueAsString ?
-                +storageValueAsString : storageMinValueAsString ? +storageMinValueAsString : 0,
-        minValue: storageMinValue,
-        maxValue: storageMaxValue,
-        error: storageValueAsString && storageMaxValueAsString && (+storageValueAsString >=
-            +storageMaxValueAsString) ? storageValueAsString : '',
-        inputMinTitle: storageMinValue,
-        inputMaxTitle: storageMaxValue,
-        disable: true
-    }
-    const [state, dispatchState] = useReducer(reducer, initialState)
-
+    const state = store.getState()
     useEffect(() => localStorage.setItem('counterMinValue', state.minValue.toString()), [state.minValue])
     useEffect(() => localStorage.setItem('counterMaxValue', state.maxValue.toString()), [state.maxValue])
     useEffect(() => localStorage.setItem('counterValue', state.value.toString()), [state.value])
 
     const inputMinChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatchState(minTitleChangeAC(e.currentTarget.value));
+        store.dispatch(minTitleChangeAC(e.currentTarget.value));
     }
     const inputMaxChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatchState(maxTitleChangeAC(e.currentTarget.value));
+        store.dispatch(maxTitleChangeAC(e.currentTarget.value));
     }
     const setHandler = () => {
-        dispatchState(setHandlerAC());
+        store.dispatch(setHandlerAC());
     }
     const incHandler = () => {
-        dispatchState(incHandlerAC());
+        store.dispatch(incHandlerAC());
     }
     const resetHandler = () => {
-        localStorage.removeItem('counterValue') // удаление сохраненного значения счетчика
-        dispatchState(resetAC());
+        localStorage.removeItem('counterValue')
+        store.dispatch(resetAC());
     }
-    const counterProps= useMemo(()=>({
-        error:state.error,
-        value:state.value,
-        incHandler:incHandler,
-        resetHandler:resetHandler
-    }),[state.error, state.value]);
-    const setProps= useMemo(()=>({
-        setHandler:setHandler,
-        inputMinChangeHandler:inputMinChangeHandler,
-        inputMaxChangeHandler:inputMaxChangeHandler,
-        inputMinTitle:state.inputMinTitle,
-        inputMaxTitle:state.inputMaxTitle,
-        error:state.error,
-        disable:state.disable
-    }),[state.error, state.disable, state.inputMinTitle, state.inputMaxTitle])
+    const counterProps = useMemo(() => ({
+        error: state.error,
+        value: state.value,
+        incHandler: incHandler,
+        resetHandler: resetHandler
+    }), [state.error, state.value]);
+    const setProps = useMemo(() => ({
+        setHandler: setHandler,
+        inputMinChangeHandler: inputMinChangeHandler,
+        inputMaxChangeHandler: inputMaxChangeHandler,
+        inputMinTitle: state.inputMinTitle,
+        inputMaxTitle: state.inputMaxTitle,
+        error: state.error,
+        disable: state.disable
+    }), [state.error, state.disable, state.inputMinTitle, state.inputMaxTitle])
     return (
         <div className={s.App}>
             <Logo/>
@@ -79,5 +59,4 @@ function App() {
         </div>
     );
 }
-
 export default App;

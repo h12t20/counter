@@ -1,9 +1,7 @@
 import React from 'react';
 import s from './Counter.module.css';
 import {Button} from "../Button/Button";
-
-import {INF_MESSAGE} from "../Redux/Reducer";
-
+import {INF_MESSAGE} from "../Redux/reducer";
 export type PropsType = {
     error: string
     incHandler: () => void
