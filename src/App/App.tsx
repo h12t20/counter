@@ -11,7 +11,6 @@ import {
     setHandlerAC,
 } from "../Redux/reducer";
 import {store} from "../Redux/store";
-
 function App() {
     const state = store.getState()
     useEffect(() => localStorage.setItem('counterMinValue', state.minValue.toString()), [state.minValue])
