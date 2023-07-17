@@ -6,8 +6,8 @@
  border-radius: 11px;
  display: flex;
  flex-direction: row;
- align-items: center;
  justify-content: center;
+ align-items: center;
 flex-wrap: wrap;
  width: 657px;
  height: 298px;
@@ -16,12 +16,9 @@ flex-wrap: wrap;
 .body {
  display: flex;
  flex-direction: row;
- align-items: center;
  justify-content: center;
-
+ align-items: center;
 }
-
-
 
 @media screen and (max-width: 576px) {
  .App {
@@ -31,8 +28,8 @@ flex-wrap: wrap;
   border-radius: 11px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 334px;
   height: 510px;

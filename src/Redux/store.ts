@@ -1,7 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {reducer} from './reducer'
+import {initialState, reducer} from './reducer'
+
 export const store = configureStore({
-    reducer
+    reducer: reducer,
+    preloadedState: initialState
 })
 
 
