@@ -1,44 +1,44 @@
 
 .App {
- text-align: center;
- border: 3px solid white;
- background-color:darkslateblue;
- border-radius: 11px;
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
-flex-wrap: wrap;
- width: 657px;
- height: 298px;
+    text-align: center;
+    border: 3px solid white;
+    background-color: darkslateblue;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 657px;
+    height: 298px;
 }
 
 .body {
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 576px) {
- .App {
-  text-align: center;
-  border: 3px solid white;
-  background-color: darkslateblue;
-  border-radius: 11px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 334px;
-  height: 510px;
- }
+    .App {
+        text-align: center;
+        border: 3px solid white;
+        background-color: darkslateblue;
+        border-radius: 11px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 334px;
+        height: 510px;
+    }
 
- .body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- }
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

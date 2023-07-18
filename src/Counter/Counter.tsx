@@ -2,14 +2,15 @@ import React from 'react';
 import s from './Counter.module.css';
 import {Button} from "../Button/Button";
 import {INF_MESSAGE} from "../Redux/reducer";
-export type PropsType = {
+
+export type CounterPropsType = {
     error: string
     incHandler: () => void
     resetHandler: () => void
     value: number
 }
-export const Counter=React.memo(CounterComp)
-export function CounterComp(props: PropsType) {
+
+export function Counter(props: CounterPropsType) {
     return (
         <div className={s.counter}>
             <div className={s.inputBlock}>

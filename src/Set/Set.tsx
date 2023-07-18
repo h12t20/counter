@@ -2,6 +2,7 @@ import React, {ChangeEvent} from 'react';
 import s from './Set.module.css'
 import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
+
 export type SetPropsType = {
     inputMinTitle: number;
     inputMaxTitle: number;
@@ -11,8 +12,8 @@ export type SetPropsType = {
     error: string
     disable: boolean
 }
-export const Set=React.memo(SetComp)
-export function SetComp(props: SetPropsType) {
+
+export function Set(props: SetPropsType) {
     return (
         <div className={s.set}>
             <div className={s.blockInputs}>
@@ -23,12 +24,12 @@ export function SetComp(props: SetPropsType) {
                 </div>
                 <div className={s.input2}>
                     <Input title={props.inputMinTitle} name='start value'
-                           className={props.error.slice(0,2) === 'Er'?
+                           className={props.error.slice(0, 2) === 'Er' ?
                                s.error : s.input} callback={props.inputMinChangeHandler}/>
                 </div>
             </div>
             <div className={s.buttonBlock}>
-                <Button disable={(!!props.error && props.error.slice(0,2) === 'Er') || props.disable}
+                <Button disable={(!!props.error && props.error.slice(0, 2) === 'Er') || props.disable}
                         callback={props.setHandler} name='set' className={s.button}></Button>
             </div>
         </div>
