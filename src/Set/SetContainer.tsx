@@ -15,9 +15,11 @@ const mapStateToProps = (state: StateType) => ({
     error: state.error,
     disable: state.disable
 })
-const mapDispatchToProps = (dispatch: (action: ActionType) => void) => ({
-    inputMinChangeHandler: (e: ChangeEvent<HTMLInputElement>) => dispatch(minTitleChangeAC(e.currentTarget.value)),
-    inputMaxChangeHandler: (e: ChangeEvent<HTMLInputElement>) => dispatch(maxTitleChangeAC(e.currentTarget.value)),
-    setHandler: () => dispatch(setHandlerAC())
-})
+const mapDispatchToProps = (dispatch: (action: ActionType) => void) => {
+    return {
+        inputMinChangeHandler: (e: ChangeEvent<HTMLInputElement>) => dispatch(minTitleChangeAC(e.currentTarget.value)),
+        inputMaxChangeHandler: (e: ChangeEvent<HTMLInputElement>) => dispatch(maxTitleChangeAC(e.currentTarget.value)),
+        setHandler: () => dispatch(setHandlerAC())
+    }
+}
 export const SetContainer = connect(mapStateToProps, mapDispatchToProps)(Set)
