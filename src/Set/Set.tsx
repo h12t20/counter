@@ -13,7 +13,7 @@ export type SetPropsType = {
     disable: boolean
 }
 
-export function Set(props: SetPropsType) {
+export const Set=(props: SetPropsType)=>{
     return (
         <div className={s.set}>
             <div className={s.blockInputs}>

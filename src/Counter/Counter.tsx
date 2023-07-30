@@ -10,7 +10,7 @@ export type CounterPropsType = {
     value: number
 }
 
-export function Counter(props: CounterPropsType) {
+export const Counter=(props: CounterPropsType)=>{
     return (
         <div className={s.counter}>
             <div className={s.inputBlock}>
