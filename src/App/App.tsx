@@ -5,6 +5,7 @@ import {CounterContainer} from "../Counter/CounterContainer";
 import {SetContainer} from "../Set/SetContainer";
 
 function App() {
+    document.title='Counter';
     return (
         <div className={s.App}>
             <Logo/>
