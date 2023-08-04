@@ -1,17 +1,18 @@
 import React from 'react';
 import s from './App.module.css';
-import {Logo} from '../Logo/Logo';
-import {CounterContainer} from "../Counter/CounterContainer";
-import {SetContainer} from "../Set/SetContainer";
+import {Logo} from '../logo/Logo';
+import {Counter} from "../counter/Counter";
+import {Set} from "../set/Set";
 
 function App() {
+    console.log('app');
     document.title='Counter';
     return (
         <div className={s.App}>
             <Logo/>
             <div className={s.body}>
-                <SetContainer/>
-                <CounterContainer/>
+                <Set/>
+                <Counter/>
             </div>
         </div>
     );

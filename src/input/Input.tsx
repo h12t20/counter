@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, memo} from "react";
 import s from './Input.module.css'
 
 export type InputPropsType = {
@@ -7,10 +7,11 @@ export type InputPropsType = {
     title: number
     callback: (e: ChangeEvent<HTMLInputElement>) => void
 }
-export const Input = (props: InputPropsType) => {
+export const Input = memo((props: InputPropsType) => {
+    console.log('input');
     return (
         <label className={s.label}>{props.name}: <input value={props.title}
                                                         name={props.name} className={props.className}
                                                         type='number' onChange={props.callback}/></label>
     );
-}
+})
