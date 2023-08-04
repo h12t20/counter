@@ -6,7 +6,6 @@ type ButtonPropsType = {
     disable:boolean
 }
 export const Button = memo((props: ButtonPropsType) => {
-    console.log('button');
     return (
             <button disabled={props.disable} className={props.className}
                     onClick={props.callback}>{props.name}</button>

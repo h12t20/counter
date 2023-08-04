@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {maxTitleChangeAC, minTitleChangeAC, setHandlerAC, StateType} from "../redux/reducer";
 
 export const Set = () => {
-    console.log('set');
     const inputMinTitle = useSelector<StateType, number>(state =>
         state.inputMinTitle);
     const inputMaxTitle = useSelector<StateType, number>(state =>

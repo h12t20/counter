@@ -5,7 +5,6 @@ import {Counter} from "../counter/Counter";
 import {Set} from "../set/Set";
 
 function App() {
-    console.log('app');
     document.title='Counter';
     return (
         <div className={s.App}>

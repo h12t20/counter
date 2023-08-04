@@ -5,7 +5,6 @@ import {incHandlerAC, INF_MESSAGE, resetAC, StateType} from "../redux/reducer";
 import {useDispatch, useSelector} from "react-redux";
 
 export const Counter=()=>{
-    console.log('counter');
     const value = useSelector<StateType, number>(state =>
         state.value);
     const error = useSelector<StateType, string>(state =>

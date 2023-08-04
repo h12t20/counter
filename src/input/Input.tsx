@@ -8,7 +8,6 @@ export type InputPropsType = {
     callback: (e: ChangeEvent<HTMLInputElement>) => void
 }
 export const Input = memo((props: InputPropsType) => {
-    console.log('input');
     return (
         <label className={s.label}>{props.name}: <input value={props.title}
                                                         name={props.name} className={props.className}
