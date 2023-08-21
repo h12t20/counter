@@ -8,39 +8,15 @@ export type StateType = {
     inputMaxTitle: number
     disable: boolean
 }
-export type ActionType = ResetACType | MinTitleChangeACType | MaxTitleChangeACType | SetHandlerACType | IncHandlerACType
-type ResetACType = ReturnType<typeof resetAC>
-type MinTitleChangeACType = ReturnType<typeof minTitleChangeAC>
-type MaxTitleChangeACType = ReturnType<typeof maxTitleChangeAC>
-type SetHandlerACType = ReturnType<typeof setHandlerAC>
-type IncHandlerACType = ReturnType<typeof incHandlerAC>
-export const resetAC = () => {
-    return {
-        type: 'RESET'
-    } as const
-}
-export const minTitleChangeAC = (value: string) => {
-    return {
-        type: 'MIN_TITLE',
-        payload: {value}
-    } as const
-}
-export const maxTitleChangeAC = (value: string) => {
-    return {
-        type: 'MAX_TITLE',
-        payload: {value}
-    } as const
-}
-export const setHandlerAC = () => {
-    return {
-        type: 'SET_HANDLER'
-    } as const
-}
-export const incHandlerAC = () => {
-    return {
-        type: 'INC_HANDLER'
-    } as const
-}
+export type ActionType = ReturnType<typeof resetAC> | ReturnType<typeof minTitleChangeAC> |
+    ReturnType<typeof maxTitleChangeAC> | ReturnType<typeof setHandlerAC> | ReturnType<typeof incHandlerAC>
+
+export const resetAC = () => ({type: 'RESET'}) as const
+export const minTitleChangeAC = (value: string) => ({type: 'MIN_TITLE', value}) as const
+export const maxTitleChangeAC = (value: string) => ({type: 'MAX_TITLE', value}) as const
+export const setHandlerAC = () => ({type: 'SET_HANDLER'}) as const
+export const incHandlerAC = () => ({type: 'INC_HANDLER'}) as const
+
 const defaultState: StateType = {
     value: 0,
     minValue: 0,
@@ -65,23 +41,23 @@ export const reducer = (state: StateType = defaultState, action: ActionType): St
         case 'MIN_TITLE': {
             return {
                 ...state,
-                inputMinTitle: +action.payload.value <= state.inputMaxTitle &&
-                +action.payload.value >= -1 ?
-                    +action.payload.value :  +action.payload.value < -1 ? -1:state.inputMaxTitle,
+                inputMinTitle: +action.value <= state.inputMaxTitle &&
+                +action.value >= -1 ?
+                    +action.value :  +action.value < -1 ? -1:state.inputMaxTitle,
                 disable: false,
-                error: state.inputMaxTitle < 1 || +action.payload.value >= state.inputMaxTitle ? 'Err1' :
-                    +action.payload.value < 0 ? 'Err2' : state.value >= state.maxValue ?
+                error: state.inputMaxTitle < 1 || +action.value >= state.inputMaxTitle ? 'Err1' :
+                    +action.value < 0 ? 'Err2' : state.value >= state.maxValue ?
                         state.value.toString() : INF_MESSAGE
             }
         }
         case 'MAX_TITLE': {
             return {
                 ...state,
-                inputMaxTitle: +action.payload.value >= state.inputMinTitle &&
-                +action.payload.value >= 0 ?
-                    +action.payload.value : +action.payload.value < 0? 0: state.inputMinTitle,
+                inputMaxTitle: +action.value >= state.inputMinTitle &&
+                +action.value >= 0 ?
+                    +action.value : +action.value < 0? 0: state.inputMinTitle,
                 disable: false,
-                error: +action.payload.value < 1 || +action.payload.value <= state.inputMinTitle ? 'Err1' :
+                error: +action.value < 1 || +action.value <= state.inputMinTitle ? 'Err1' :
                     state.inputMinTitle < 0 ? 'Err2' : state.value >= state.maxValue ?
                         state.value.toString() : INF_MESSAGE
             }

@@ -65,7 +65,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '12'}
+        value: '12',
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -86,7 +86,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '-3'}
+        value: '-3',
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -107,7 +107,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '15'}
+        value: '15',
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -128,7 +128,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '18'}
+        value: '18'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -149,7 +149,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '-1'}
+        value: '-1'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -170,7 +170,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -191,7 +191,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MIN_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 33,
         minValue: 2,
@@ -212,7 +212,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '16'}
+        value: '16'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -233,7 +233,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '0'}
+        value: '0'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -254,7 +254,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '1'}
+        value: '1'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -275,7 +275,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '15'}
+        value: '15'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -296,7 +296,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '-15'}
+        value: '-15'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -317,7 +317,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -338,7 +338,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -359,7 +359,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
@@ -380,7 +380,7 @@ test('differentStateTest', () => {
         disable: false
     }, {
         type: 'MAX_TITLE',
-        payload: {value: '14'}
+        value: '14'
     })).toStrictEqual({
         value: 6,
         minValue: 2,
